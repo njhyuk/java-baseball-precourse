@@ -12,12 +12,16 @@ public class Game {
 
     public Game() {
         this.goal = createGoal();
+        System.out.print(this.goal);
     }
 
     public void play() {
         for (boolean isStrikeOut = false; !isStrikeOut; ) {
             ArrayList<Integer> numbers = this.scanNumbers();
+
             Score score = Umpire.to(goal, numbers);
+            score.printMessage();
+
             isStrikeOut = score.isStrikeOut();
         }
 

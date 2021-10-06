@@ -1,22 +1,19 @@
 package baseball.model;
 
+import baseball.model.Player.Computer;
+import baseball.model.Player.User;
 import nextstep.utils.Randoms;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Game {
-    private final ArrayList<Integer> goal;
-
-    public Game() {
-        this.goal = createGoal();
-    }
-
     public void play() {
-        for (boolean retry = true; retry; ) {
-            ArrayList<Integer> numbers = this.scanNumbers();
+        Computer computer = new Computer(randomNumbers());
 
-            Score score = Umpire.to(goal, numbers);
+        for (boolean retry = true; retry; ) {
+            Umpire umpire = new Umpire(new User(scanNumbers()), computer);
+            Score score = umpire.getScore();
             score.printMessage();
 
             retry = !score.isStrikeOut();
@@ -25,6 +22,16 @@ public class Game {
 
     public boolean isWantRetry() {
         return scanRetry();
+    }
+
+    private ArrayList<Integer> randomNumbers() {
+        return new ArrayList<>(
+                Arrays.asList(
+                        Randoms.pickNumberInRange(1, 9),
+                        Randoms.pickNumberInRange(1, 9),
+                        Randoms.pickNumberInRange(1, 9)
+                )
+        );
     }
 
     private ArrayList<Integer> scanNumbers() {

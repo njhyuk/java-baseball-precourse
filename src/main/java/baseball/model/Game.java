@@ -12,8 +12,8 @@ public class Game {
         Computer computer = new Computer(NumbersFactory.createRandomNumbers());
 
         for (boolean retry = true; retry; ) {
-            Judgement umpire = new Judgement(new User(NumbersFactory.createScanNumbers()), computer);
-            Score score = umpire.scoring();
+            Judgement judgement = new Judgement(new User(NumbersFactory.createScanNumbers()), computer);
+            Score score = judgement.scoring();
             score.printMessage();
 
             retry = !score.isStrikeOut();

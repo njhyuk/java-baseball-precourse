@@ -7,7 +7,7 @@ import java.util.Arrays;
 
 public class Game {
     private final ArrayList<Integer> goal;
-    private boolean isContinue = false;
+    private boolean isRetry = false;
 
     public Game() {
         this.goal = createGoal();
@@ -24,7 +24,7 @@ public class Game {
             isStrikeOut = score.isStrikeOut();
         }
 
-        this.isContinue = scanContinue();
+        this.isRetry = scanRetry();
     }
 
     private ArrayList<Integer> scanNumbers() {
@@ -44,7 +44,7 @@ public class Game {
         return numbers;
     }
 
-    private boolean scanContinue() {
+    private boolean scanRetry() {
         Scan scan = new Scan(
                 "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.",
                 "1또는 2만 입력 가능 합니다.",
@@ -65,7 +65,7 @@ public class Game {
         );
     }
 
-    public boolean isContinue() {
-        return this.isContinue;
+    public boolean isRetry() {
+        return this.isRetry;
     }
 }

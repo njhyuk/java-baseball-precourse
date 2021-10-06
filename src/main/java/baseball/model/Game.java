@@ -1,4 +1,4 @@
-package baseball;
+package baseball.model;
 
 import nextstep.utils.Randoms;
 
@@ -7,24 +7,24 @@ import java.util.Arrays;
 
 public class Game {
     private final ArrayList<Integer> goal;
-    private boolean isRetry = false;
 
     public Game() {
         this.goal = createGoal();
-//        System.out.print(this.goal);
     }
 
     public void play() {
-        for (boolean isStrikeOut = false; !isStrikeOut; ) {
+        for (boolean retry = true; retry; ) {
             ArrayList<Integer> numbers = this.scanNumbers();
 
             Score score = Umpire.to(goal, numbers);
             score.printMessage();
 
-            isStrikeOut = score.isStrikeOut();
+            retry = !score.isStrikeOut();
         }
+    }
 
-        this.isRetry = scanRetry();
+    public boolean isWantRetry() {
+        return scanRetry();
     }
 
     private ArrayList<Integer> scanNumbers() {
@@ -63,9 +63,5 @@ public class Game {
                         Randoms.pickNumberInRange(1, 9)
                 )
         );
-    }
-
-    public boolean isRetry() {
-        return this.isRetry;
     }
 }

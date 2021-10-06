@@ -9,11 +9,11 @@ import java.util.Arrays;
 
 public class Game {
     public void play() {
-        Computer computer = new Computer(Numbers.createRandomNumbers());
+        Computer computer = new Computer(NumbersFactory.createRandomNumbers());
 
         for (boolean retry = true; retry; ) {
-            Judgement umpire = new Judgement(new User(Numbers.createScanNumbers()), computer);
-            Score score = umpire.getScore();
+            Judgement umpire = new Judgement(new User(NumbersFactory.createScanNumbers()), computer);
+            Score score = umpire.scoring();
             score.printMessage();
 
             retry = !score.isStrikeOut();

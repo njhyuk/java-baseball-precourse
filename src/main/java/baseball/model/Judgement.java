@@ -12,7 +12,7 @@ public class Judgement {
         this.computer = computer;
     }
 
-    public Score getScore() {
+    public Score scoring() {
         int strike = 0;
         int ball = 0;
 

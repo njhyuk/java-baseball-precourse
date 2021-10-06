@@ -1,9 +1,9 @@
 package baseball.model.Player;
 
-import java.util.ArrayList;
+import baseball.model.Numbers;
 
 public class Computer extends Player {
-    public Computer(ArrayList<Integer> numbers) {
+    public Computer(Numbers numbers) {
         super(numbers);
     }
 }

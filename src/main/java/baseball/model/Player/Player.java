@@ -1,15 +1,15 @@
 package baseball.model.Player;
 
-import java.util.ArrayList;
+import baseball.model.Numbers;
 
 abstract public class Player {
-    ArrayList<Integer> numbers;
+    Numbers numbers;
 
-    public Player(ArrayList<Integer> numbers) {
+    public Player(Numbers numbers) {
         this.numbers = numbers;
     }
 
-    public ArrayList<Integer> getNumbers() {
+    public Numbers getNumbers() {
         return numbers;
     }
 }

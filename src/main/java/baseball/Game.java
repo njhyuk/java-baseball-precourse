@@ -29,10 +29,14 @@ public class Game {
     }
 
     private ArrayList<Integer> scanNumbers() {
-        System.out.print("\n 숫자를입력해주세요:");
-
         ArrayList<Integer> numbers = new ArrayList<>();
-        String input = Console.readLine();
+
+        Scan scan = new Scan(
+                "숫자를입력해주세요:",
+                "세자리 숫자로 입력 해 주세요.",
+                "^[0-9]{3}$"
+        );
+        String input = scan.get();
 
         for (String s : input.split("")) {
             numbers.add(Integer.parseInt(s));
@@ -42,8 +46,12 @@ public class Game {
     }
 
     private boolean scanContinue() {
-        System.out.print("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-        String input = Console.readLine();
+        Scan scan = new Scan(
+                "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.",
+                "1또는 2만 입력 가능 합니다.",
+                "^(1|2)$"
+        );
+        String input = scan.get();
 
         return input.equals("1");
     }

@@ -20,11 +20,8 @@ public class Score {
     }
 
     public void printMessage() {
-        printStatus();
         printScore();
-    }
 
-    private void printStatus() {
         if (isNothing()) {
             System.out.println("낫싱");
         }
@@ -38,13 +35,15 @@ public class Score {
         ArrayList<String> message = new ArrayList<>();
 
         if (strike > 0) {
-            message.add(String.format("%d 스트라이크", strike));
+            message.add(String.format("%d스트라이크", strike));
         }
 
         if (ball > 0) {
-            message.add(String.format("%d 볼", ball));
+            message.add(String.format("%d볼", ball));
         }
 
-        System.out.println(String.join(" ", message));
+        if (message.size() > 0) {
+            System.out.println(String.join(" ", message));
+        }
     }
 }

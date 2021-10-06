@@ -11,7 +11,7 @@ public class Game {
 
     public Game() {
         this.goal = createGoal();
-        System.out.print(this.goal);
+//        System.out.print(this.goal);
     }
 
     public void play() {

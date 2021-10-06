@@ -14,10 +14,10 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class NumbersTest {
     @Nested
     @DisplayName("포지션으로 숫자를 찾을 때")
-    class DescribeOf_FindByPosition {
+    class DescribeFindByPosition {
         @Nested
         @DisplayName("해당 위치에 숫자가 존재하는 경우")
-        class ContextWith_exists_number {
+        class ContextExistsNumber {
             @Test
             @DisplayName("숫자를 리턴한다.")
             void it_returns_number() {
@@ -29,7 +29,7 @@ public class NumbersTest {
 
         @Nested
         @DisplayName("해당 위치에 숫자가 존재하지 않는 경우")
-        class ContextWith_not_exists_number {
+        class ContextNotExistsNumber {
             @Test
             @DisplayName("IndexOutOfBoundsException 예외를 던진다.")
             void it_returns_number() {

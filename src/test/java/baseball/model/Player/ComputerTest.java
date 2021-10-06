@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class ComputerTest {
     @Nested
     @DisplayName("컴퓨터의 숫자 리스트를 가져오면")
-    class DescribeOf_getNumbers {
+    class DescribeGetNumbers {
         @Test
         @DisplayName("숫자 리스트를 리턴한다.")
         void it_returns_number() {
